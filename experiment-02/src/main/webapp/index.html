@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Table</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /*文本样式*/
+    h1 {
+      padding: 10px;
+    }
+
+    p {
+      padding: 5px;
+    }
+
+    span.label {
+      border-radius: 3px;
+      padding: 0 5px;
+      color: white;
+    }
+
+    span.label-success {
+      background-color: green;
+    }
+
+    span.label-warning {
+      background-color: gold;
+    }
+
+    /*表格样式*/
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    table th, table td {
+      text-align: center;
+      padding: 10px;
+      border-bottom: 1px solid #dddddd;
+    }
+
+    tbody tr:nth-child(odd) {
+      background-color: #f2f2f2;
+    }
+
+    /*超链接样式*/
+    a.btn {
+      background-color: red;
+      border-radius: 8px;
+      color: white;
+      text-decoration: none;
+      padding: 5px 20px;
+    }
+  </style>
+</head>
+<body>
+<h2>学生信息</h2>
+<p>说明：以下为2010级学生名单，共4人，
+  <span class="label label-success">成功加载3人</span>。
+  <span class="label label-warning">警告：列表不包含降级学生</span>。
+</p>
+
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>姓名</th>
+        <th>班级</th>
+        <th>Email</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>郭立新</td>
+        <td>软件工程2010级1班</td>
+        <td>guo@example.com</td>
+        <td><a href="#" class="btn">修改</a> <a href="#" class="btn">删除</a></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>黄英</td>
+        <td>软件工程2010级1班</td>
+        <td>huang@example.com</td>
+        <td><a href="#" class="btn">修改</a> <a href="#" class="btn">删除</a></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>吕惠玲</td>
+        <td>软件工程2010级2班</td>
+        <td>lv@example.com</td>
+        <td><a href="#" class="btn">修改</a> <a href="#" class="btn">删除</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

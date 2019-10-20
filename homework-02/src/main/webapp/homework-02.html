@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>card</title>
+  <style>
+    /* 作业2 */
+    /* 全局样式 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .container {
+      display: flex;
+    }
+
+    .card {
+      flex-direction: row;
+      padding: 20px;
+      transition-duration: 300ms;
+      margin: 20px;
+      width: 270px;
+    }
+
+    /* 设置图片样式 */
+    .card .header img {
+      /*图片大小随窗口大小变化*/
+      width: 100%;
+      opacity: 0.5;
+      /*这里设置成50%就是变成圆形*/
+      border-radius: 50%;
+      transition-duration: 300ms;
+    }
+
+    /* 设置文本样式 */
+    .card .content p {
+      text-align: justify;
+    }
+
+
+    /* 设置超链接样式 */
+    a {
+      color: white;
+      background-color: indianred;
+      padding: 10px;
+      border-radius: 10px;
+      text-decoration: none;
+    }
+
+    /* 设置悬浮样式 */
+    .card:hover {
+      box-shadow: 0 0 25px rgba(0,0,0,0.2);
+    }
+
+    /*新增代码*/
+    .card:hover .header img{
+      opacity: 1;
+    }
+
+    a:hover {
+      background-color: red;
+    }
+
+    /* 这个有一个问题，我无法设置悬浮到卡片上时改变透明度，只能设置悬浮到图片上时改变图片的透明度 */
+    /*.card .header img:hover {*/
+    /*  opacity: 1;*/
+    /*}*/
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="card">
+    <div class="header">
+      <img src="https://i.pravatar.cc/250?img=1" alt="face">
+    </div>
+    <div class="content">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dicta ex laudantium ratione sint.
+        Aperiam dignissimos enim eos ex laudantium maxime neque nobis nulla odio rem soluta totam, unde
+        voluptatem voluptates, voluptatum!</p>
+      <a href="">Read More</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="header">
+      <img src="https://i.pravatar.cc/250?img=2" alt="face">
+    </div>
+    <div class="content">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dicta ex laudantium ratione sint.
+        Aperiam dignissimos enim eos ex laudantium maxime neque nobis nulla odio rem soluta totam, unde
+        voluptatem voluptates, voluptatum!</p>
+      <a href="">Read More</a>
+    </div>
+  </div>
+  <div class="card">
+    <div class="header">
+      <img src="https://i.pravatar.cc/250?img=3" alt="face">
+    </div>
+    <div class="content">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dicta ex laudantium ratione sint.
+        Aperiam dignissimos enim eos ex laudantium maxime neque nobis nulla odio rem soluta totam, unde
+        voluptatem voluptates, voluptatum!</p>
+      <a href="">Read More</a>
+    </div>
+  </div>
+</div>
+</body>
+</html>

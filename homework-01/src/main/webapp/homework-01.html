@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>homework-01</title>
+  <link href="https://cdn.bootcss.com/material-design-icons/3.0.1/iconfont/material-icons.css" rel="stylesheet">
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    /* 容器 */
+    .main {
+      border: 1px solid red;
+      width: 800px;
+      padding: 15px;
+    }
+
+    /* 定义输入框样式 */
+    input[type=text], input[type=password] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      outline: none;
+    }
+
+    /* 定义表单组样式 */
+    .form-group {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      padding: 10px;
+    }
+
+    /* 定义表格标签样式 */
+    .form-label {
+      text-align: right;
+      flex-basis: 20%;
+      padding: 5px 10px;
+    }
+
+    /* 定义表格输入样式 */
+    .form-input {
+      flex-basis: 80%;
+    }
+  </style>
+</head>
+<body>
+<div class="main">
+  <form>
+    <div class="form-group">
+      <label class="form-label">
+        <i class="material-icons">account_circle</i>
+      </label>
+      <div class="form-input">
+        <input type="text">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">
+        <i class="material-icons">lock</i>
+      </label>
+      <div class="form-input">
+        <input type="password">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">
+        <i class="material-icons">tag_faces</i>
+      </label>
+      <div class="form-input">
+        <label><input type="radio" name="sex">男</label>
+        <label><input type="radio" name="sex">女</label>
+      </div>
+    </div>
+  </form>
+</div>
+<p>
+  掌握以上给定的HTML布局方法 <br>
+  基于以上已实现的form布局，通过添加CSS代码实现需要的样式
+  <br>
+  参考：https://v3.bootcss.com/css/#forms
+  <br>
+  <b>原理与思路</b><br>
+  所有文本，密码的input元素，全局横向占用最大，圆角，内边距；<br>
+  声明form-group类，放置说明与输入域的行容器，横向弹性布局，元素居中对齐；<br>
+  声明form-label类，放置说明，文本右对齐，占20%，注意弹性百分比的占用属性；<br>
+  声明form-input类，放置输入域，互交的输入域可能是多个，因此是容器，占80%；<br>
+  元素间，通过内边距推开
+</p>
+</body>
+</html>

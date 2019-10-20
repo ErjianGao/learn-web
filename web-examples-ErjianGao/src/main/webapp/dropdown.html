@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dropdown</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+    }
+
+    .dropdown-1 {
+      /*容器必须显式声明相对定位*/
+      position: relative;
+      /*由于block横向占据全行，所以使用inline-block*/
+      display: inline-block;
+
+      flex-basis: 10%;
+    }
+
+    .dropdown-1 .dropdown-menu {
+      /*基于下拉容器的绝对定位,可以覆盖在其他内容之上*/
+      position: absolute;
+      /*下拉内容不占据空间*/
+      display: none;
+      background-color: red;
+    }
+
+    .dropdown-1:hover .dropdown-menu {
+      display: block;
+    }
+
+    /*dropdown-2样式*/
+    .dropdown-2 {
+      position: relative;
+      display: inline-block;
+      flex-basis: 10%;
+    }
+
+    .dropdown-2 .dropdown-toggle {
+      /*横向占据全部*/
+      width: 100%;
+      padding: 15px;
+      background-color: yellowgreen;
+      color: white;
+      border: none;
+    }
+
+    .dropdown-2 .dropdown-menu {
+      position: absolute;
+      display: none;
+      text-decoration: none;
+    }
+
+    li {
+      list-style-type: none;
+    }
+
+    .dropdown-2:hover .dropdown-menu {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+<div class="dropdown-1">
+  <p>Mouse over me</p>
+  <div class="dropdown-menu">
+    <p>hello world! </p>
+  </div>
+</div>
+
+<div class="dropdown-2">
+  <button class="dropdown-toggle">Mouse over me</button>
+  <div class="dropdown-menu">
+    <ul>
+      <li>Link 1</li>
+      <li>Link 2</li>
+      <li>Link 3</li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>
