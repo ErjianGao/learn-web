@@ -8,8 +8,42 @@
     <title>Document</title>
     <link href="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js">
     <link href="https://cdn.bootcss.com/material-design-icons/3.0.1/iconfont/material-icons.css" rel="stylesheet">
+    <style>
+        .other-icons {
+            display: none;
+        }
+
+        .main-icon {
+            display: block;
+        }
+
+        .main-icon .material-icons {
+            font-size: 90px;
+            color: blue;
+        }
+
+        .main-icon:hover .other-icons .material-icons {
+            display: block;
+            position: absolute;
+        }
+    </style>
 </head>
 <body>
+<div class="nav">
+    <div class="main-icon">
+        <i class="material-icons">account_circle</i>
+    </div>
+    <div class="other-icons">
+        <div class="main-icon">
+            <i class="material-icons">edit</i>
+        </div>
+        <div class="main-icon">
+            <i class="material-icons">cancel</i>
+        </div>
+    </div>
 
+</div>
+<script>
+</script>
 </body>
 </html>
