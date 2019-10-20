@@ -77,7 +77,7 @@
         <button type="button" onclick="showAlert()">点击弹出警告</button>
 <!--        传递当前事件的元素对象-->
         <h1 id="h1" onclick="changeHeadText(this)">点击标题内容会修改</h1>
-        <input type="text" onkeyup="upperCase(this)">
+        <input name="username" type="text" onkeyup="upperCase(this)">
     </div>
 </div>
 <script>
@@ -132,8 +132,9 @@
     };
 
     let changeInputType = () => {
-        let input = document.querySelector("input[name=text]");
+        let input = document.querySelector("input[name=username]");
         if (input === text) {
+            // 修改input类型
             input.type = "checkbox";
         } else {
             input.type = "text";
