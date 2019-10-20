@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        input {
+            outline: none;
+            border-radius: 5px;
+            padding: 5px;
+        }
+
+        .wrapper {
+            display: grid;
+            grid-template-columns: 1fr 4fr;
+            grid-template-areas: "a a" "b c" "d d"
+        }
+
+        .wrapper div {
+            border: 1px solid red;
+            padding: 20px;
+            margin: 5px;
+            background-color: orange;
+        }
+
+        .header {
+            grid-area: a;
+        }
+
+        .sidebar {
+            grid-area: b;
+        }
+
+        .main {
+            grid-area: c;
+        }
+
+        .footer {
+            grid-area: d;
+        }
+
+        /*响应式布局*/
+        @media (max-width: 600px) {
+            .wrapper {
+                grid-template-columns: 1fr;
+                grid-template-areas: "a" "b" "c" "d"
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div class="header">
+        One
+    </div>
+    <div class="sidebar">
+        two
+    </div>
+    <div class="main">
+        three
+    </div>
+    <div class="footer">
+        four
+        <button type="button" onclick="show()">点击获取js对象中的值</button>
+        <div id="demo">
+
+        </div>
+        <button type="button" onclick="showAlert()">点击弹出警告</button>
+<!--        传递当前事件的元素对象-->
+        <h1 id="h1" onclick="changeHeadText(this)">点击标题内容会修改</h1>
+        <input type="text" onkeyup="upperCase(this)">
+    </div>
+</div>
+<script>
+    let changeHeadText = (h) => {
+        h.innerHTML = "oooops";
+        h.style.color = `rgb(${0},${255},${0})`
+    };
+
+    function upperCase(input) {
+        //将输入元素的值修改
+        input.value = input.value.toUpperCase();
+    }
+    // function toCelsius(fahrenheit) {
+    //     return (5/9) * (fahrenheit-32);
+    // }
+
+    let person = {
+        name: "Eric Gao",
+        getFullName() {
+            return this.name;
+        }
+    };
+
+    let show = () => {
+        document.getElementById("demo").innerHTML = person.getFullName();
+    };
+
+    let text = "";
+    for (let i = 0; i < 5; i++) {
+        text += "The number is " + i + "<br>";
+    }
+    document.getElementById("demo").innerHTML = text;
+
+    let loop = () => {
+        let courses = [
+            {
+                id: 1,
+                name: "Java"
+            },
+            {
+                id:2,
+                name:"C++"
+            }
+        ];
+        for (const c of courses) {
+            console.log(c.name + "/");
+        }
+    };
+
+    let showAlert = () => {
+        window.alert("11");
+    };
+</script>
+
+</body>
+</html>

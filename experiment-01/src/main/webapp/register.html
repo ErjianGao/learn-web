@@ -1,52 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ch">
 <head>
-    <meta charset="UTF-8">
-    <title>注册</title>
+  <meta charset="UTF-8">
+  <title>注册</title>
 </head>
 <body>
-<form action="/register" method="post">
-    <div>
-        <p>个人信息</p>
-        <label>用户名：<input type="text" required></label>
-        <br>
-        <label>密码：<input type="password" required></label>
-        <br>
-        性别：<label><input name="gender" type="radio">男</label> <label><input name="gender" type="radio">女</label>
-        <br>
-        生日：<input id="brithday" type="date" required>
-        <br>
-        籍贯：
-        <input list="province">
-        <datalist id="province">
-            <option>哈尔滨</option>
-            <option>沈阳</option>
-            <option>长春</option>
-        </datalist>
-        <br>
-        学历：
-        <select>
-            <option></option>
-            <option selected>学士</option>
-            <option>硕士</option>
-            <option>博士</option>
-        </select>
-    </div>
-    <div>
-        <p>其他信息</p>
-        喜欢的课程：
-        <ul>
-            <li><label><input type="checkbox" checked>Web开发技术</label></li>
-            <li><label><input type="checkbox">Java程序设计</label></li>
-            <li><label><input type="checkbox">数据库原理</label></li>
-            <li><label><input type="checkbox">系统分析与测试</label></li>
-        </ul>
-        照片：<input id="photo" type="file" accept=".jpg, .png">
-    </div>
-
-    <button type="submit">提交</button>
-    <button type="reset">重置</button>
-
+<form action="/regiser" method="post" enctype="multipart/form-data">
+  <div>
+    <p>个人信息</p>
+    用户名：
+    <input type="text" name="username" placeholder="请输入用户名" required><br>
+    密码：
+    <input type="password" name="lastname" placeholder="请输入密码" required><br>
+    性别：
+    <label><input type="radio" name="gender">男</label>
+    <label><input type="radio" name="gender">女</label><br>
+    生日：
+    <input type="date" name="birthday"><br>
+    籍贯：
+    <input list="hometown" name="hometown">
+    <datalist id="hometown">
+      <option>北京</option>
+      <option>上海</option>
+      <option>黑龙江</option>
+      <option>河北</option>
+    </datalist>
+    <br>
+    学历：
+    <select name="degree">
+      <option value="nihao"></option>
+      <option value="" selected>学士</option>
+      <option value="">硕士</option>
+      <option value="">博士</option>
+    </select>
+  </div>
+  <div>
+    <p>其他信息</p>
+    <p>喜欢的课程：</p>
+    <ul>
+      <li>
+        <input type="checkbox" name="favor-class" id="s1">
+        <label for="s1">Web开发技术</label><br>
+      </li>
+      <li>
+        <input type="checkbox" name="favor-class" id="s2">
+        <label for="s2">Java程序设计</label><br>
+      </li>
+      <li>
+        <input type="checkbox" name="favor-class" id="s3">
+        <label for="s3">数据库原理</label><br>
+      </li>
+      <li>
+        <input type="checkbox" name="favor-class" id="s4">
+        <label for="s4">系统分析与测试</label><br>
+      </li>
+    </ul>
+    照片：
+    <input type="file" accept=".jpg,.bmp,.jpge,.pcx,.gif">
+  </div>
+  <button type="submit">提交</button>
+  <button type="reset">重置</button>
 </form>
 </body>
 </html>

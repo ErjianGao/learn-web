@@ -1,92 +1,128 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="ch">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    /*设置全局样式*/
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        .area {
-            padding: 10px;
-            border: 1px solid #f08c00;
-            background-color: #ffec99;
-            border-radius: 5px;
-        }
+    /*每一个部分的样式*/
+    .area {
+      border: 1px solid orange;
+      border-radius: 10px;
+      background-color: #fff359;
+    }
 
-        header {
-            grid-area: header;
-        }
+    header {
+      grid-area: header;
+    }
 
-        aside {
-            min-width: 200px;
-            grid-area: aside;
-        }
+    aside {
+      min-width: 250px;
+      grid-area: aside;
+    }
 
-        article {
-            grid-area: article;
-        }
+    article {
+      grid-area: article;
+    }
 
-        footer {
-            grid-area: footer;
-        }
+    footer {
+      grid-area: footer;
+    }
 
-        .container {
-            display: grid;
-            grid-gap: 15px;
-            grid-template-columns: 1fr 4fr;
-            grid-template-areas: "header header" "aside article" "footer footer";
-        }
-        /* ----------- 上导航 ---------------- */
-        header > nav > ul {
-            display: flex;
-            background: #333;
-            list-style: none;
-        }
-        header > nav a {
-            color: white;
-            text-decoration: none;
-            display: block;
-            padding: 15px 25px;
-        }
-        header > nav a:hover {
-            background-color: #111;
-        }
-        header > nav .right {
-            margin-left: auto;
-        }
-        /* ------------ 侧边栏 ---------------- */
-        .sidebar {
-            background: #f1f1f1;
-        }
-        .sidebar > h2 {
-            background: #3185bf;
-            color: white;
-            padding: 10px 20px;
-        }
-        .sidebar a{
-            display: block;
-            color: black;
-            text-decoration: none;
-            padding: 10px 20px;
-            transition: transform 0.5s;
-        }
-        .sidebar a:hover {
-            background: #03a9f4;
-            color: white;
-            transform: scale(1.1);
-        }
-        /* --------响应式布局 ----------------- */
-        @media (max-width: 800px) {
-            .container {
-                grid-template-columns: 1fr;
-                grid-template-areas: "header" "aside" "article" "footer";
-            }
-        }
-    </style>
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 4fr;
+      grid-gap: 10px;
+      grid-template-areas:"header header" "aside article" "footer footer"
+    }
+
+    /*设置上导航样式*/
+    header nav ul {
+      display: flex;
+      background-color: black;
+    }
+
+    header nav {
+      padding: 5px;
+    }
+
+    header ul {
+      list-style-type: none;
+    }
+    header a {
+      display: inline-block;
+      text-decoration: none;
+      color: white;
+      padding: 10px 20px;
+      transition-duration: 300ms;
+    }
+
+    header > nav .right {
+      margin-left: auto;
+    }
+
+    header a:hover {
+      background-color: white;
+      color: black;
+    }
+
+    /*侧边栏样式*/
+    aside {
+      padding: 10px;
+      /*!important将优先级调至最高*/
+      color: white;
+    }
+
+    #up {
+      margin-bottom: 10px;
+    }
+
+    aside .sidebar {
+      background-color: #e2e2e2;
+      border-radius: 10px;
+      box-shadow: 0px 0px 25px rgba(0,0,0,0.3);
+    }
+
+    aside .sidebar h2 {
+      padding: 5px 20px;
+      background-color: cornflowerblue;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+
+    .sidebar a {
+      text-decoration: none;
+      display: block;
+      padding: 5px 20px;
+      color: #000;
+      transition-duration: 200ms;
+    }
+
+    .sidebar a:hover {
+      background-color: rgb(0, 191, 255);
+      color: white;
+      transform: scale(1.05);
+      box-shadow: 0px 0px 15px rgba(0,0,0,0.3);
+    }
+
+    .sidebar a.bottomA {
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+
+    @media (max-width: 800px) {
+      .container {
+        grid-template-columns: 1fr;
+        grid-template-areas: "header" "aside" "article" "footer";
+      }
+    }
+  </style>
 </head>
 <body>
 <div class="container">
@@ -102,12 +138,12 @@
         </nav>
     </header>
     <aside class="area">
-        <div class="sidebar">
-            <h2>云技术管理</h2>
+        <div id="up" class="sidebar">
+            <h2 class="top">云技术管理</h2>
             <ul>
                 <li><a href="#">云服务器</a></li>
                 <li><a href="#">云数据库</a></li>
-                <li><a href="#">负载均衡</a></li>
+                <li><a class="bottomA" href="#">负载均衡</a></li>
             </ul>
         </div>
         <div class="sidebar">
@@ -116,7 +152,7 @@
                 <li><a href="#">云盾控制台</a></li>
                 <li><a href="#">DDoS高防IP</a></li>
                 <li><a href="#">Web应用防火墙</a></li>
-                <li><a href="#">CA证书服务</a></li>
+                <li><a class="bottomA" href="#">CA证书服务</a></li>
             </ul>
         </div>
     </aside>
