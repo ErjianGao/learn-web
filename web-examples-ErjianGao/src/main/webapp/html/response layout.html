@@ -83,7 +83,7 @@
 <script>
     let changeHeadText = (h) => {
         h.innerHTML = "oooops";
-        h.style.color = `rgb(${0},${255},${0})`
+        h.style.color = "green";
     };
 
     function upperCase(input) {
@@ -130,6 +130,15 @@
     let showAlert = () => {
         window.alert("11");
     };
+
+    let changeInputType = () => {
+        let input = document.querySelector("input[name=text]");
+        if (input === text) {
+            input.type = "checkbox";
+        } else {
+            input.type = "text";
+        }
+    }
 </script>
 
 </body>
