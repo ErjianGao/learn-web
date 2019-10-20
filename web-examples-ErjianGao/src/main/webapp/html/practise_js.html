@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form class="register">
+    <label>
+        <input type="checkbox" onchange="checkAgree(this)">
+        已阅读并同意条款 <br>
+    </label>
+    <button type="submit" disabled>提交</button>
+</form>
+<div class="selector">
+    <label>
+        <select name="course" onchange="loopFilter(this.value)">
+            <option value=""></option>
+            <option value="1">html</option>
+            <option value="2">java</option>
+        </select>
+    </label>
+    <span id="teacherName"></span>
+</div>
+<script>
+    let checkAgree = (check) => {
+        let submitButton = document.querySelector(".register button[type=submit]");
+        // 与check的状态正好相反
+        submitButton.disabled = !check.checked;
+    };
+
+    let loopFilter = (id) => {
+        let courses = [
+            {id:1, teacherName: "Wang Bo", course: "html"},
+            {id:2, teacherName: "Ji Mingyu", course: "java"}
+        ];
+
+        let course = courses.find(course => course.id === id);
+        document.getElementById("teacherName").innerHTML = course.teacherName;
+    };
+</script>
+</body>
+</html>
