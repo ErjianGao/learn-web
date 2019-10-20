@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="show()">fade by JS</button>
+<button></button>
+<p id="p1">enter</p>
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    $(function () {
+        $(#p1).hover(function () {
+            $(this).text("you entered p");
+        }), function() {
+            $(this).text("now you leave p");
+        }
+    });
+
+</script>
+</body>
+</html>
