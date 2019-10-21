@@ -6,27 +6,65 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link href="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js">
+
     <link href="https://cdn.bootcss.com/material-design-icons/3.0.1/iconfont/material-icons.css" rel="stylesheet">
     <style>
-        .other-icons {
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .nav {
+            position: fixed;
+            top: 50px;
+            right: 50px;
+            text-align: center;
+        }
+
+        .main-icon i {
+            transition: transform 0.5s;
+        }
+
+        .nav i:hover {
+            cursor: pointer;
+        }
+
+        .main-icon i {
+            font-size: 90px;
+            color: dodgerblue;
+            transition-duration: 500ms;
+        }
+
+        .main-icon:hover i {
+            transform: rotate(180deg);
+        }
+
+        .other-icons ul {
             display: none;
         }
 
-        .main-icon {
-            display: block;
+        .other-icons li {
+            list-style-type: none;
         }
 
-        .main-icon .material-icons {
-            font-size: 90px;
-            color: blue;
-            text-shadow: 0 0 25px rgba(0,0,0,0.3);
+        .other-icons i {
+            font-size: 50px;
+            padding: 5px;
         }
 
-        .main-icon:hover .other-icons .material-icons {
-            display: block;
-            position: absolute;
+        .other-icons .green {
+            color: green;
         }
+
+        .other-icons .red {
+            color: red;
+        }
+
+        .other-icons .yellow {
+            color: #e0e21d;
+        }
+
     </style>
 </head>
 <body>
@@ -35,16 +73,30 @@
         <i class="material-icons">account_circle</i>
     </div>
     <div class="other-icons">
-        <div class="main-icon">
-            <i class="material-icons">edit</i>
-        </div>
-        <div class="main-icon">
-            <i class="material-icons">cancel</i>
-        </div>
+        <ul>
+            <li>
+                <a href=""><i class="material-icons yellow">code</i></a>
+            </li>
+            <li>
+                <a href=""><i class="material-icons green">edit</i></a>
+            </li>
+            <li>
+                <a href=""><i class="material-icons red">cancel</i></a>
+            </li>
+        </ul>
     </div>
-
 </div>
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
 <script>
+    $(function () {
+        $(".nav").hover(function () {
+            $(".main-icon i").text("close");
+            $(".other-icons ul").fadeIn();
+        }, function () {
+            $(".main-icon i").text("account_circle");
+            $(".other-icons ul").fadeOut();
+        })
+    })
 </script>
 </body>
 </html>
