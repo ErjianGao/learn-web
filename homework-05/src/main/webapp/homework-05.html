@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            font-family: 微软雅黑,serif;
+        }
+
+        .content {
+            text-align: justify;
+            flex-basis: 80%;
+        }
+
+        .modal {
+            width: 100%;
+            height: 100%;
+            display: none;
+            justify-content: center;
+            position: absolute;
+            background-color: rgba(0,0,0,0.1);
+        }
+
+        .modal .modal-dialog {
+            width: 500px;
+            position: relative;
+            margin: auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 25px rgba(0,0,0,0.2);
+        }
+
+        .modal .modal-header {
+            padding: 10px;
+            margin: 5px;
+        }
+
+        .modal .modal-content {
+            padding: 10px;
+            margin: 5px;
+        }
+
+        .modal-footer {
+            padding: 10px;
+            margin: 5px;
+        }
+
+        .modal-footer .Close {
+            font-size: 16px;
+            display: inline-block;
+            color: white;
+            background-color: red;
+            padding: 10px 20px;
+            border-radius: 4px;
+            outline: none;
+            border: 1px solid #cccccc;
+        }
+
+    </style>
+</head>
+<body>
+<div class="modal" id="m1">
+    <div class="modal-dialog">
+        <div class="modal-header">
+            <h2>题目</h2>
+        </div>
+        <div class="modal-content">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi culpa cupiditate distinctio eaque eligendi ex harum hic iste laboriosam maiores pariatur provident quibusdam quisquam quos recusandae reiciendis rerum sapiente sit tempore vel, vitae voluptatibus voluptatum. Aliquid aspernatur atque, blanditiis dolore earum eligendi error ex fugiat fugit ipsum, porro similique sunt.
+        </div>
+        <div class="modal-footer">
+            <button class="Close">Close</button>
+        </div>
+    </div>
+</div>
+<div class="content">
+    原理与思路
+    布局与样式
+    模态框容器，默认隐藏，显式时绝对定位覆盖在显式窗口
+    模态框容器背景色而非元素透明，否则容器内的元素也会透明，rgba()
+    模态框容器内对话框，显式声明宽度，居中，相对定位，从而可以添加渐入渐出效果
+    对话框，可包含header container footer部分，可添加下边线分割显式内容
+
+    jquery
+    当激活模态框时，模态框渐入
+    希望实现，当点击模态框内，对话框外，即空白区域时，关闭模态框。但空白区域不是独立的元素，而是模态框元素的一部分。即，无法通过选择器选取该区域
+    因此，可将关闭的点击事件监听注册在模态框容器。但是，当点击模态框内的对话框，一样会关闭模态框，从而无法实现与对话框的互交
+    事件的向上冒泡机制。当子元素事件被激活，一样会影响到父元素监听的事件。 即，当激活子元素点击事件，如果父元素也注册了点击事件，则也会激活父元素的点击事件。即，事件的冒泡传播
+    因此，可通过在子元素中阻止事件的冒泡，实现在对话框内操作时，不会影响到模态框容器
+    实现，对对话框监听点击，回调中返回false，即可阻止父元素模态框对点击事件的回调
+
+    可通过animate()方法，添加对话框的动态定位，从默认的顶端，渐变定位到距上30px，即对话框从上向下渐入；关闭模态框时，再将对话框渐变定位到顶端，即，从下向上渐出<br>
+
+    <button class="activate" data-target="m1">
+        点击激活模态框
+    </button>
+</div>
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    $(function () {
+        // 同一时间只能打开一个模态框，因此获取该对象
+        let modal;
+        $("[data-target]").click(function () {
+            // 点击后执行回调函数，由其他对象执行
+            // 拿到对象中data-target属性的值
+            let id = $(this).data("target");
+            // 使用模板字符串利用id选择器选择modal元素，注意模板字符串的写法
+            modal = $(`#${id}`);
+            // 模态框渐入
+            modal.fadeIn();
+            // 从上到下
+            modal.children(".modal-dialog").animate({"top":"30px"},300);
+        });
+
+        $(".modal .Close, .modal").click(function () {
+            $(".modal .modal-dialog").animate({"top":"0"},300);
+            $(".modal").fadeOut();
+        });
+
+        $(".modal .modal-dialog").click(false);
+    });
+</script>
+</body>
+</html>
