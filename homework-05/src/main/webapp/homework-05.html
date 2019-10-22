@@ -10,6 +10,7 @@
             box-sizing: border-box;
         }
 
+        /*容器内弹性居中*/
         body {
             display: flex;
             justify-content: center;
@@ -19,6 +20,7 @@
         .content {
             text-align: justify;
             flex-basis: 80%;
+            font-size: 50px;
         }
 
         .modal {
@@ -26,7 +28,7 @@
             height: 100%;
             display: none;
             justify-content: center;
-            position: absolute;
+            position: fixed;
             background-color: rgba(0,0,0,0.1);
         }
 
@@ -112,7 +114,8 @@
             // 点击后执行回调函数，由其他对象执行
             // 拿到对象中data-target属性的值
             let id = $(this).data("target");
-            // 使用模板字符串利用id选择器选择modal元素，注意模板字符串的写法
+            // 使用模板字符串利用id选择器选择modal元素，注意模板字符串的写法，先加`${}，反引号内是字符串的内容，
+            // 大括号内是变量的内容
             modal = $(`#${id}`);
             // 模态框渐入
             modal.fadeIn();
@@ -121,10 +124,13 @@
         });
 
         $(".modal .Close, .modal").click(function () {
+            // 模态框向上移动
             $(".modal .modal-dialog").animate({"top":"0"},300);
+            // 模态框渐出
             $(".modal").fadeOut();
         });
-
+        // 在点击模态框的对话框时阻止点击事件向上传播，否则也会激活模态框的点击事件
+        // 即，点击模态框内，对话框外，才关闭，点击对话框内无效
         $(".modal .modal-dialog").click(false);
     });
 </script>
