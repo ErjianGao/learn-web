@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>注册</h1>
+<label>
+    <input type="checkbox" id="legal">我已阅读相关说明并遵守相关法律</label>
+<form id="register">
+    <div>
+        用户名:
+        <label>
+            <input type="text" name="username">
+        </label>
+        <br> 未来意向：
+        <label><input type="radio" name="purp" value="1">Java工程师</label>
+        <label><input type="radio" name="purp" value="2">测试工程师</label>
+        <label><input type="radio" name="purp" value="3">前端工程师</label>
+
+        <br>
+        <br> 请从以下课程中选择2项最喜欢的课程
+        <ul>
+            <li>
+                <label>
+                    <input type="checkbox" name="courses">Web开发技术
+                </label>
+            </li>
+            <li>
+                <label>
+                    <input type="checkbox" name="courses">软件项目管理
+                </label>
+            </li>
+            <li>
+                <label>
+                    <input type="checkbox" name="courses">数据库原理
+                </label>
+            </li>
+            <li>
+                <label>
+                    <input type="checkbox" name="courses">系统分析与设计
+                </label>
+            </li>
+        </ul>
+        地址：
+        <ul id="ul_address">
+        </ul>
+        <label>
+            <input name="address">
+        </label>
+        <button type="button" id="button_address">添加地址</button>
+        <br>
+    </div>
+    <button type="submit">提交</button>
+</form>
+<script src="resources/js/jquery-3.4.1.min.js"></script>
+<script>
+    $(function () {
+        let agreement;
+        let checkEl = $("#legal");
+        agreement = checkEl.checked;
+        if(agreement !== "checked") {
+            $("input").not(checkEl).checked.disabled();
+        }
+    })
+</script>
+</body>
+</html>
