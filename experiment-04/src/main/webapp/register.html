@@ -56,14 +56,90 @@
 </form>
 <script src="resources/js/jquery-3.4.1.min.js"></script>
 <script>
-    $(function () {
-        let agreement;
-        let checkEl = $("#legal");
-        agreement = checkEl.checked;
-        if(agreement !== "checked") {
-            $("input").not(checkEl).checked.disabled();
-        }
-    })
+    $(function() {
+
+        //初始化，将表单内所有输入域按钮禁用
+        legal = $("#legal");
+        $("input").not(legal).prop("disabled",true);
+        $("#register button").prop("disabled", true);
+        //提交按钮是否有效与两个因素有关
+        let userNameValid = false;
+        let coursesValid = false;
+        legal.click(function() {
+            //点击之后需要有一个变量标志复选框是否被选中
+            let disChecked = !$(legal).prop("checked");
+            $("input").not(legal).prop("disabled", disChecked);
+        });
+
+        // 去掉空格后，用户名的长度应该大于等于6
+        $("input[name=username]").change(function() {
+            if($(this).val().trim().length < 6) {
+                alert("用户名的长度应该大于等于6");
+                userNameValid = true;
+            } else {
+                userNameValid = true;
+            }
+        });
+
+        // 用户只能且仅能选两门最喜欢的课程
+        //先指定一个最多选课门数
+        const count = 2;
+        const checkBoxes = $("input[name=courses]");
+        checkBoxes.click(function() {
+            let checked = checkBoxes.filter(":checked");
+            let unchecked = checkBoxes.not(checked);
+            //checked 的数量与unchecked的属性绑定
+            if(checked.length === count) {
+                unchecked.prop("disabled",true);
+                coursesValid = true;
+            } else {
+                unchecked.prop("disabled",false);
+                coursesValid = false;
+            }
+        });
+
+        // 条件不满足时，按钮无法按动，当用户名和复选框发生变化时改变
+        $("input[name=username], input[name=courses]").change(function () {
+            let valid = userNameValid && coursesValid;
+            //将属性设置成与valid相反即可
+            $("button[type=submit]").prop("disabled",!valid);
+        });
+
+        //地址按键
+        $("input[name=address]").keyup(function () {
+            if($(this).val().trim().length !== 0) {
+                $("#button_address").prop("disabled", false);
+            } else {
+                $("#button_address").prop("disabled", true);
+            }
+        });
+
+        //动态添加地址
+        $("#button_address").click(function () {
+            let input = $("input[name=address]");
+            let item = $(`<li>${input.val()}</li>`);
+            item.css("display","none");
+            // 将input元素中的值设为空
+            $(input).val("");
+            $("#ul_address").append(item);
+            item.fadeIn();
+        });
+
+        // 可以取消选中radio,可以通过为元素添加自定义data-*
+        $("input[type=radio]").click(function () {
+            let secClick = $(this).data("value");
+            if(secClick) {
+                $(this).prop("checked",false);
+            } else {
+                //自定义属性无值，为第一次点击
+                $(this).data("value",true);
+                //将其他radio的标志设为false
+                $("input[type=radio]").not(this).data("value",false);
+            }
+        });
+
+    });
+
 </script>
 </body>
 </html>

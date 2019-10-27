@@ -66,14 +66,21 @@
 </aside>
 <script src="resources/js/jquery-3.4.1.min.js"></script>
 <script>
+    // $(function () {
+    //     $(".sidebar>h2").click(function () {
+    //         // 被点击标题之后的ul元素，与标题平级
+    //         let ul = $(this).next("ul");
+    //         // 此二级导航，滑动切换
+    //         ul.slideToggle();
+    //         // 其他二级导航，排除当前导航，全部滑上
+    //         $(".sidebar>ul").not(ul).slideUp();
+    //     });
+    // })
     $(function () {
-        $(".sidebar>h2").click(function () {
-            // 被点击标题之后的ul元素，与标题平级
-            let ul = $(this).next("ul");
-            // 此二级导航，滑动切换
-            ul.slideToggle();
-            // 其他二级导航，排除当前导航，全部滑上
-            $(".sidebar>ul").not(ul).slideUp();
+        $(".sidebar h2").click(function () {
+            let currentUl = $(this).next("ul");
+            currentUl.slideToggle();
+            $(".sidebar ul").not(currentUl).slideUp();
         });
     })
 </script>
