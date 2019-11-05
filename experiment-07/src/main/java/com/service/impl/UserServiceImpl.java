@@ -36,7 +36,8 @@ public class UserServiceImpl implements UserService {
     @Override
     public void addUser(String newName) {
         // 先声明出SQL语句作为字符串方便以后作为参数传递
-        String sql = "INSERT INTO name(user) VALUES (?)";
+        // 注意这里如果在数据库中已经把某个键设置成不为空，则必须设置自增（ID）或者是默认值
+        String sql = "INSERT INTO user(name) VALUES (?)";
         try(Connection connection = DataSourceUtils.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             preparedStatement.setString(1,newName);
