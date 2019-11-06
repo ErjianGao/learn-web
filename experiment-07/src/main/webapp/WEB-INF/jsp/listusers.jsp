@@ -15,5 +15,8 @@
         </li>
     </c:forEach>
 </ul>
+<a href="/index">
+    <button type="button">返回</button>
+</a>
 </body>
 </html>
