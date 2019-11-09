@@ -5,7 +5,7 @@
         flex-direction: column;
         text-align: center;
         background-color: #333333;
-        margin: 10px 0;
+        margin: 10px 0 0 0;
     }
 
     .footer p {

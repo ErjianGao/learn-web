@@ -1,15 +1,12 @@
 <%@ page pageEncoding="UTF-8" %>
 <style>
-    * {
-        margin: 0;
-        padding: 0;
-    }
-
     nav.sidebar {
         width: 250px;
         border-radius: 10px;
         display: inline-block;
         box-shadow: 0 0 25px rgba(0,0,0,0.1);
+        /*容器宽度自适应于内部元素*/
+        height: min-content;
     }
 
     nav.sidebar ul li {
