@@ -33,4 +33,15 @@ public class ELServlet extends HttpServlet {
 
         req.getRequestDispatcher("/jsp/hellojsp.jsp").forward(req,resp);
     }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String s1 = req.getParameter("c1");
+        String s2 = req.getParameter("c2");
+        String s3 = req.getParameter("c3");
+        req.setAttribute("c1",s1);
+        req.setAttribute("c1",s2);
+        req.setAttribute("c1",s3);
+        req.getRequestDispatcher("/jsp/hellojsp.jsp").forward(req,resp);
+    }
 }

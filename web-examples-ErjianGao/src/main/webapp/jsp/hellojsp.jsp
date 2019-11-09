@@ -84,5 +84,11 @@ ${iftest}
 <p>日期格式化（1）：<fmt:formatDate value="${now}" type="time" /></p>
 <p>日期格式化（2）：<fmt:formatDate value="${now}" type="date" /></p>
 <p>日期格式化（3）：<fmt:formatDate value="${now}" pattern="yyyy-MM-dd HH:mm:ss E" /></p>
+
+参数一：${c1}
+参数二：${c2}
+参数三：${c3}
+
+
 </body>
 </html>
