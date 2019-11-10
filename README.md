@@ -1,3 +1,3 @@
 # Web Course
-### update 2019.10.20
-push the local repo to GitHub, which contains three experiment moudules and four homework moudules, and the fourth homework haven't been completed yet. 
+###What is included?
+This repo contains the experiments and homework in Web develop course taught by Mr.Bo Wang. And I took this course in my junior year. From this course, I have learned how to use Git and GitHub to handle version control. 
