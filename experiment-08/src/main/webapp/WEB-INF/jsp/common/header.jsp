@@ -18,6 +18,12 @@
     .header ul li.right {
         margin-left: auto;
     }
+
+    /*设置悬浮样式应该设置到a上*/
+    header.header ul li a:hover {
+        color: black;
+        background-color: white;
+    }
 </style>
 
 <header class="header">

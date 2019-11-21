@@ -22,6 +22,10 @@
             display: flex;
             /*能占多大占多大*/
             flex-grow: 1;
+            /*设置在项目上的对齐方式*/
+            /*align-self: auto;*/
+            /*sretch为默认值，容器中的所有项基于最高项拉伸填充*/
+            align-items: flex-start
         }
 
         li {
